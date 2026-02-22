@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>星座運勢 · AstroZone</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700;900&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- 頂部導覽 -->
+  <header class="navbar">
+    <div class="logo">✦ AstroZone</div>
+    <nav>
+      <a href="#horoscopes">十二星座</a>
+      <a href="#today">今日運勢</a>
+      <a href="#compatibility">合盤配對</a>
+    </nav>
+  </header>
+
+  <!-- 英雄區塊 -->
+  <section class="hero">
+    <div class="stars-bg"></div>
+    <div class="hero-content">
+      <p class="hero-sub">✦ 宇宙的指引就在此刻 ✦</p>
+      <h1>探索你的<br /><span class="gradient-text">星座命運</span></h1>
+      <p class="hero-desc">每天更新的星座運勢，帶你解讀愛情、事業、財運與健康的宇宙密碼。</p>
+      <a href="#horoscopes" class="btn-primary">查看今日運勢</a>
+    </div>
+    <div class="zodiac-wheel">
+      <div class="wheel-ring">
+        <span class="wheel-sign" style="--i:0">♈</span>
+        <span class="wheel-sign" style="--i:1">♉</span>
+        <span class="wheel-sign" style="--i:2">♊</span>
+        <span class="wheel-sign" style="--i:3">♋</span>
+        <span class="wheel-sign" style="--i:4">♌</span>
+        <span class="wheel-sign" style="--i:5">♍</span>
+        <span class="wheel-sign" style="--i:6">♎</span>
+        <span class="wheel-sign" style="--i:7">♏</span>
+        <span class="wheel-sign" style="--i:8">♐</span>
+        <span class="wheel-sign" style="--i:9">♑</span>
+        <span class="wheel-sign" style="--i:10">♒</span>
+        <span class="wheel-sign" style="--i:11">♓</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 今日日期 -->
+  <section class="date-bar">
+    <div class="date-inner">
+      <span id="today-date"></span>
+      <span class="dot">·</span>
+      <span id="lunar-info">農曆正月</span>
+      <span class="dot">·</span>
+      <span>每日運勢已更新</span>
+    </div>
+  </section>
+
+  <!-- 星座選擇器 -->
+  <section class="horoscopes" id="horoscopes">
+    <div class="container">
+      <h2 class="section-title">選擇你的星座</h2>
+      <p class="section-sub">點擊星座查看今日詳細運勢分析</p>
+      <div class="zodiac-grid">
+        <!-- cards injected by JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- 運勢詳細面板 -->
+  <div class="modal-overlay" id="modal-overlay">
+    <div class="modal" id="modal">
+      <button class="modal-close" id="modal-close">✕</button>
+      <div class="modal-header">
+        <span class="modal-symbol" id="modal-symbol"></span>
+        <div>
+          <h2 id="modal-name"></h2>
+          <p id="modal-date-range"></p>
+        </div>
+      </div>
+      <div class="modal-scores" id="modal-scores"></div>
+      <div class="modal-fortune" id="modal-fortune"></div>
+      <div class="modal-advice" id="modal-advice"></div>
+    </div>
+  </div>
+
+  <!-- 今日精選 -->
+  <section class="today-section" id="today">
+    <div class="container">
+      <h2 class="section-title">今日精選運勢</h2>
+      <div class="featured-grid" id="featured-grid">
+        <!-- injected by JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- 合盤配對 -->
+  <section class="compatibility" id="compatibility">
+    <div class="container">
+      <h2 class="section-title">星座愛情配對</h2>
+      <p class="section-sub">選擇兩個星座，探索你們之間的緣分指數</p>
+      <div class="compat-selector">
+        <div class="compat-pick">
+          <label>你的星座</label>
+          <select id="sign-a">
+            <option value="">-- 選擇 --</option>
+          </select>
+        </div>
+        <div class="compat-heart">💫</div>
+        <div class="compat-pick">
+          <label>對方的星座</label>
+          <select id="sign-b">
+            <option value="">-- 選擇 --</option>
+          </select>
+        </div>
+      </div>
+      <button class="btn-primary" id="check-compat">查看配對結果</button>
+      <div class="compat-result" id="compat-result"></div>
+    </div>
+  </section>
+
+  <!-- 頁尾 -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-logo">✦ AstroZone</div>
+      <p>以星辰為引，以命運為途。</p>
+      <p class="footer-copy">© 2026 AstroZone · 星座運勢</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
