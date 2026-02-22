@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>星座運勢 · AstroZone</title>
+  <title>AstroZone · Horoscopes</title>
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700;900&display=swap" rel="stylesheet" />
 </head>
@@ -13,20 +13,21 @@
   <header class="navbar">
     <div class="logo">✦ AstroZone</div>
     <nav>
-      <a href="#horoscopes">十二星座</a>
-      <a href="#today">今日運勢</a>
-      <a href="#compatibility">合盤配對</a>
+      <a href="#horoscopes" data-i18n="nav.horoscopes">十二星座</a>
+      <a href="#today" data-i18n="nav.today">今日運勢</a>
+      <a href="#compatibility" data-i18n="nav.compatibility">合盤配對</a>
     </nav>
+    <button class="lang-btn" id="lang-btn">EN</button>
   </header>
 
   <!-- 英雄區塊 -->
   <section class="hero">
     <div class="stars-bg"></div>
     <div class="hero-content">
-      <p class="hero-sub">✦ 宇宙的指引就在此刻 ✦</p>
-      <h1>探索你的<br /><span class="gradient-text">星座命運</span></h1>
-      <p class="hero-desc">每天更新的星座運勢，帶你解讀愛情、事業、財運與健康的宇宙密碼。</p>
-      <a href="#horoscopes" class="btn-primary">查看今日運勢</a>
+      <p class="hero-sub" data-i18n="hero.sub">✦ 宇宙的指引就在此刻 ✦</p>
+      <h1><span data-i18n="hero.h1a">探索你的</span><br /><span class="gradient-text" data-i18n="hero.h1b">星座命運</span></h1>
+      <p class="hero-desc" data-i18n="hero.desc">每天更新的星座運勢，帶你解讀愛情、事業、財運與健康的宇宙密碼。</p>
+      <a href="#horoscopes" class="btn-primary" data-i18n="hero.btn">查看今日運勢</a>
     </div>
     <div class="zodiac-wheel">
       <div class="wheel-ring">
@@ -50,18 +51,18 @@
   <section class="date-bar">
     <div class="date-inner">
       <span id="today-date"></span>
+      <span class="dot" id="lunar-dot">·</span>
+      <span id="lunar-info" data-i18n="date.lunar">農曆正月</span>
       <span class="dot">·</span>
-      <span id="lunar-info">農曆正月</span>
-      <span class="dot">·</span>
-      <span>每日運勢已更新</span>
+      <span data-i18n="date.updated">每日運勢已更新</span>
     </div>
   </section>
 
   <!-- 星座選擇器 -->
   <section class="horoscopes" id="horoscopes">
     <div class="container">
-      <h2 class="section-title">選擇你的星座</h2>
-      <p class="section-sub">點擊星座查看今日詳細運勢分析</p>
+      <h2 class="section-title" data-i18n="section.horoscopes.title">選擇你的星座</h2>
+      <p class="section-sub" data-i18n="section.horoscopes.sub">點擊星座查看今日詳細運勢分析</p>
       <div class="zodiac-grid">
         <!-- cards injected by JS -->
       </div>
@@ -88,7 +89,7 @@
   <!-- 今日精選 -->
   <section class="today-section" id="today">
     <div class="container">
-      <h2 class="section-title">今日精選運勢</h2>
+      <h2 class="section-title" data-i18n="section.today.title">今日精選運勢</h2>
       <div class="featured-grid" id="featured-grid">
         <!-- injected by JS -->
       </div>
@@ -98,24 +99,24 @@
   <!-- 合盤配對 -->
   <section class="compatibility" id="compatibility">
     <div class="container">
-      <h2 class="section-title">星座愛情配對</h2>
-      <p class="section-sub">選擇兩個星座，探索你們之間的緣分指數</p>
+      <h2 class="section-title" data-i18n="section.compat.title">星座愛情配對</h2>
+      <p class="section-sub" data-i18n="section.compat.sub">選擇兩個星座，探索你們之間的緣分指數</p>
       <div class="compat-selector">
         <div class="compat-pick">
-          <label>你的星座</label>
+          <label data-i18n="compat.label.a">你的星座</label>
           <select id="sign-a">
             <option value="">-- 選擇 --</option>
           </select>
         </div>
         <div class="compat-heart">💫</div>
         <div class="compat-pick">
-          <label>對方的星座</label>
+          <label data-i18n="compat.label.b">對方的星座</label>
           <select id="sign-b">
             <option value="">-- 選擇 --</option>
           </select>
         </div>
       </div>
-      <button class="btn-primary" id="check-compat">查看配對結果</button>
+      <button class="btn-primary" id="check-compat" data-i18n="compat.btn">查看配對結果</button>
       <div class="compat-result" id="compat-result"></div>
     </div>
   </section>
@@ -124,8 +125,8 @@
   <footer class="footer">
     <div class="footer-inner">
       <div class="footer-logo">✦ AstroZone</div>
-      <p>以星辰為引，以命運為途。</p>
-      <p class="footer-copy">© 2026 AstroZone · 星座運勢</p>
+      <p data-i18n="footer.tagline">以星辰為引，以命運為途。</p>
+      <p class="footer-copy" data-i18n="footer.copy">© 2026 AstroZone · 星座運勢</p>
     </div>
   </footer>
 

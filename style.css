@@ -47,6 +47,20 @@ body {
   transition: color .25s;
 }
 .navbar nav a:hover { color: var(--accent); }
+.lang-btn {
+  background: rgba(192,132,252,.15);
+  border: 1px solid var(--border);
+  color: var(--accent);
+  border-radius: 20px;
+  padding: .3rem .9rem;
+  font-size: .82rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background .2s, color .2s;
+  font-family: inherit;
+  flex-shrink: 0;
+}
+.lang-btn:hover { background: rgba(192,132,252,.3); color: #fff; }
 
 /* ===== Hero ===== */
 .hero {
@@ -267,7 +281,7 @@ body {
   font-size: .88rem;
   color: #fde68a;
 }
-.modal-advice::before { content: '✨ 今日建議：'; font-weight: 700; display: block; margin-bottom: .3rem; }
+.advice-prefix { font-weight: 700; display: block; margin-bottom: .3rem; }
 
 /* ===== Featured Grid ===== */
 .featured-grid {
