@@ -1,0 +1,39 @@
+name: Daily Exchange Rate Report
+
+on:
+  schedule:
+    - cron: '0 1 * * 1-5'   # 09:00 台灣時間 (UTC+8) = 01:00 UTC，週一至週五
+  workflow_dispatch:          # 允許手動觸發測試
+
+jobs:
+  send-report:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install -r ExchangeRates/requirements.txt
+
+      - name: Run exchange rate report
+        env:
+          GMAIL_USER: ${{ secrets.GMAIL_USER }}
+          GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
+          RECIPIENTS: ${{ secrets.RECIPIENTS }}
+        run: python ExchangeRates/exchange_rate_report.py
+
+      - name: Commit updated Excel history
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add ExchangeRates/history.xlsx
+          git diff --staged --quiet || git commit -m "📊 Update exchange rate history $(date +'%Y/%m/%d')"
+          git push
