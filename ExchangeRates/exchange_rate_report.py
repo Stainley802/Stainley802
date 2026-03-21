@@ -153,7 +153,7 @@ def send_email(rates, today, excel_path):
 def main():
     today = date.today()
 
-    if not is_working_day(today):
+    if not is_working_day(today) and not os.environ.get("FORCE_SEND"):
         print(f"⏭️  {today} is not a working day. Skipping.")
         sys.exit(0)
 

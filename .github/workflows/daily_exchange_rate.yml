@@ -4,6 +4,11 @@ on:
   schedule:
     - cron: '0 1 * * 1-5'   # 09:00 Taiwan Time (UTC+8) = 01:00 UTC, Mon-Fri
   workflow_dispatch:          # 允許手動觸發測試
+    inputs:
+      force_send:
+        description: 'Force send even on non-working days (for testing)'
+        type: boolean
+        default: false
 
 jobs:
   send-report:
@@ -30,6 +35,7 @@ jobs:
           GMAIL_USER: ${{ secrets.GMAIL_USER }}
           GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
           RECIPIENTS: ${{ secrets.RECIPIENTS }}
+          FORCE_SEND: ${{ github.event.inputs.force_send }}
         run: python ExchangeRates/exchange_rate_report.py
 
       - name: Commit updated Excel history
