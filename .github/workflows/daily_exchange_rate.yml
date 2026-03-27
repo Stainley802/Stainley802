@@ -1,10 +1,7 @@
 name: Daily Exchange Rate Report
 
 on:
-  schedule:
-    - cron: '0 1 * * 1-5'   # 09:00 Taiwan Time (UTC+8) = 01:00 UTC, Mon-Fri
-  workflow_dispatch:          # 允許手動觸發測試
-
+ 
 jobs:
   send-report:
     runs-on: ubuntu-latest
